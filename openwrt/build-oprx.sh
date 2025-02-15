@@ -33,10 +33,10 @@ ip_info=`curl -sk https://ip.cooluc.com`;
 # script url
 if [ "$isCN" = "CN" ]; then
     #export mirror=https://init.cooluc.com
-	export mirror=https://raw.githubusercontent.com/ilxp/oP_sbwml_build_script/main
+	export mirror=https://raw.githubusercontent.com/ilxp/oP_ddray_build_script/main
 else
     #export mirror=https://init2.cooluc.com
-    export mirror=https://raw.githubusercontent.com/ilxp/oP_sbwml_build_script/main
+    export mirror=https://raw.githubusercontent.com/ilxp/oP_ddray_build_script/main
 fi
 
 # github actions - automatically retrieve `github raw` links

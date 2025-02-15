@@ -47,7 +47,7 @@ function merge_package() {
 }
 
 #二、导入自己data目录数据配置 （注意结果是./diydata/openwrt/data）
-#git clone -b main --single-branch https://github.com/ilxp/oP_sbwml_build_script.git ./diydata
+#git clone -b main --single-branch https://github.com/ilxp/oP_ddray_build_script.git ./diydata
 #cd  ./diydata
 #git sparse-checkout init --cone 
 #git sparse-checkout set openwrt/data
@@ -65,7 +65,7 @@ function merge_package() {
 #cp -rf ./diydata/openwrt/data/app/*  ./
 #初始化文件
 
-merge_package main https://github.com/ilxp/oP_sbwml_build_script ./diydata openwrt/data   #注意结果是./diydata/data）
+merge_package main https://github.com/ilxp/oP_ddray_build_script ./diydata openwrt/data   #注意结果是./diydata/data）
 
 #相关配置文件	
 cp -rf ./diydata/data/files ./package/base-files/
