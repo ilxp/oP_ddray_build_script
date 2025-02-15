@@ -110,7 +110,7 @@ fi
 
 # FullCone module
 #git clone https://$gitea/sbwml/nft-fullcone package/new/nft-fullcone
-git clone https://$github/sbwml/nft-fullcone package/new/nft-fullcone
+git clone https://$github/ilxp/nft-fullcone package/new/nft-fullcone
 curl -s $mirror/openwrt/patch/packages-patches/nft-fullcone/011-fix-kernel-6.13.patch > package/new/nft-fullcone/patches/011-fix-kernel-6.13.patch
 
 # IPv6 NAT
