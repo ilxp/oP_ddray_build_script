@@ -1019,12 +1019,12 @@ git checkout
 popd
 
 # 22、UPX 可执行软件压缩
-sed -i '/patchelf pkgconf/i\tools-y += ucl upx' ./tools/Makefile
-sed -i '\/autoconf\/compile :=/i\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
+#sed -i '/patchelf pkgconf/i\tools-y += ucl upx' ./tools/Makefile
+#sed -i '\/autoconf\/compile :=/i\$(curdir)/upx/compile := $(curdir)/ucl/compile' ./tools/Makefile
 ##merge_package main https://github.com/Lienol/openwrt.git  ./tools tools/ucl tools/upx  #表示在根目录生成一个tools文件夹。本来就会有，所以报错。
-#merge_package main https://github.com/Lienol/openwrt.git tools tools/ucl tools/upx  #表示在移动到根目录已经存在的tools文件夹。lienol版本有点旧3.95。
-merge_package main https://github.com/Lienol/openwrt.git tools tools/ucl
-merge_package main https://github.com/ilxp/upx-openwrt.git tools upx   #最新版4.2.4
+##merge_package main https://github.com/Lienol/openwrt.git tools tools/ucl tools/upx  #表示在移动到根目录已经存在的tools文件夹。lienol版本有点旧3.95。
+#merge_package main https://github.com/Lienol/openwrt.git tools tools/ucl
+#merge_package main https://github.com/ilxp/upx-openwrt.git tools upx   #最新版4.2.4
 
 #23 v2raya
 git clone --depth 1 https://github.com/zxlhhyccc/luci-app-v2raya.git package/new/luci-app-v2raya
