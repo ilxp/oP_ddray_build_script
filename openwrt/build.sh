@@ -28,16 +28,20 @@ endgroup() {
 ip_info=`curl -sk https://ip.cooluc.com`;
 [ -n "$ip_info" ] && export isCN=`echo $ip_info | grep -Po 'country_code\":"\K[^"]+'` || export isCN=US
 
-# script url
-if [ "$isCN" = "CN" ]; then
-    export mirror=https://init.cooluc.com
-else
-    export mirror=https://init2.cooluc.com
-fi
 
-# github actions - caddy server
-if [ "$(whoami)" = "runner" ] && [ -z "$git_password" ]; then
-    export mirror=http://127.0.0.1:8080
+if [ -n "$BUILD_SCRIPT_MIRROR" ]; then
+    export mirror=$BUILD_SCRIPT_MIRROR
+else
+    if [ "$isCN" = "CN" ]; then
+        export mirror=https://init.cooluc.com
+    else
+        export mirror=https://init2.cooluc.com
+    fi
+
+    # github actions - caddy server
+    if [ "$(whoami)" = "runner" ] && [ -z "$git_password" ]; then
+        export mirror=http://127.0.0.1:8080
+    fi
 fi
 
 # private gitea
@@ -361,7 +365,7 @@ if [ "$BUILD_FAST" = "y" ]; then
     if [ "$PLATFORM_ID" = "platform:el9" ]; then
         TOOLCHAIN_URL="http://127.0.0.1:8080"
     else
-        TOOLCHAIN_URL=https://"$github_proxy"github.com/sbwml/openwrt_caches/releases/download/openwrt-24.10
+        TOOLCHAIN_URL=https://"$github_proxy"github.com/dd-ray/openwrt_caches/releases/download/openwrt-24.10
     fi
     curl -L ${TOOLCHAIN_URL}/toolchain_${LIBC}_${toolchain_arch}_gcc-${gcc_version}${tools_suffix}.tar.zst -o toolchain.tar.zst $CURL_BAR
     echo -e "\n${GREEN_COLOR}Process Toolchain ...${RES}"
