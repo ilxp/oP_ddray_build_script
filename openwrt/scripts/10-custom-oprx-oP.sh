@@ -637,11 +637,11 @@ git clone -b main --single-branch https://github.com/ilxp/luci-app-ikoolproxy.gi
 
 #七、管控相关
 #1） APP 过滤
-git clone -b master --depth 1 https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
-sed -i 's/services/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/controller/appfilter.lua
+#git clone -b master --depth 1 https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
+#sed -i 's/services/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/controller/appfilter.lua
 
-#git clone -b master --depth 1 https://github.com/sbwml/OpenAppFilter.git  package/diy/OpenAppFilter
-#sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/controller/appfilter.lua
+git clone -b master --depth 1 https://github.com/sbwml/OpenAppFilter.git  package/diy/OpenAppFilter
+sed -i 's/network/control/g' package/diy/OpenAppFilter/luci-app-oaf/luasrc/controller/appfilter.lua
 
 #更新特征库
 pushd package/diy/OpenAppFilter
